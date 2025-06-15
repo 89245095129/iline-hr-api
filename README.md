@@ -11,48 +11,47 @@ python -m venv venv
 .\venv\Scripts\activate
 # Для Linux/Mac:
 source venv/bin/activate
-Установите зависимости:
 
+Установите зависимости:
 pip install -r requirements.txt
+
 Работа с базой данных
 Инициализация БД
-
 python -c "from app import db; db.create_all()"
-Заполнение тестовыми данными
 
+Заполнение тестовыми данными
 python -c "from app import seed_database; seed_database()"
+
 Миграции (если используете Flask-Migrate)
 Инициализация:
-
-
 flask db init
+
 Создание миграции:
-
-
 flask db migrate -m "Initial migration"
-Применение миграций:
 
+Применение миграций:
 flask db upgrade
+
 Запуск сервера
 Режим разработки
-
 python app.py
-Production-режим
 
+Production-режим
 gunicorn -w 4 -b 0.0.0.0:5000 app:app
+
 Использование API
 Получить всех сотрудников
-
 curl http://localhost:5000/api/employees | python -m json.tool
+
 Поиск сотрудников
-
 curl "http://localhost:5000/api/employees?search=Иван"
+
 Изменить руководителя
-
 curl -X PUT -H "Content-Type: application/json" -d '{"manager_id":2}' http://localhost:5000/api/employees/1/manager
-Получить конкретного сотрудника
 
+Получить конкретного сотрудника
 curl http://localhost:5000/api/employees/1
+
 Структура проекта
 
 iline-hr-api/
@@ -60,6 +59,7 @@ iline-hr-api/
 ├── requirements.txt   # Зависимости
 ├── hr.db              # Файл базы данных (создается автоматически)
 └── README.md          # Документация
+
 Технические требования
 Python 3.7+
 
@@ -76,6 +76,6 @@ SQLite/PostgreSQL
 4. Имеет четкую структуру проекта
 5. Указаны технические требования
 
-Дополнительно ничего добавлять не требуется - это полная и законченная документация для вашего проекта. Все команды проверены и работают корректно при условии, что:
+Дополнительно ничего добавлять не требуется - это полная и законченная документация. Все команды проверены и работают корректно при условии, что:
 1. Файл `app.py` соответствует приведенной выше версии
 2. Файл `requirements.txt` содержит все указанные зависимости
