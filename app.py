@@ -139,6 +139,9 @@ def update_manager(id):
         return jsonify({'error': str(e)}), 400
 
 if __name__ == '__main__':
-    seed_database()
+     with app.app_context():
+        # Проверяем, не заполнена ли уже база
+        if not Position.query.first():
+            seed_database()
     app.run(host='0.0.0.0', port=5000, debug=True)
 
