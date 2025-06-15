@@ -13,19 +13,18 @@ python -m venv venv
 source venv/bin/activate
 Установите зависимости:
 
-bash
 pip install -r requirements.txt
 Работа с базой данных
 Инициализация БД
-bash
+
 python -c "from app import db; db.create_all()"
 Заполнение тестовыми данными
-bash
+
 python -c "from app import seed_database; seed_database()"
 Миграции (если используете Flask-Migrate)
 Инициализация:
 
-bash
+
 flask db init
 Создание миграции:
 
